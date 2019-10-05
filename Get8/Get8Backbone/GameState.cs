@@ -68,9 +68,9 @@ namespace Get8Backbone
         }
     }
 
-    class Pile
+    public class Pile
     {
-        List<Card> pile;
+        private List<Card> pile;
         public Pile(List<Card> cards)
         {
             pile = cards;
@@ -103,12 +103,38 @@ namespace Get8Backbone
         }
     }
 
-    class Card
+    public class Card
     {
         private cardType type;
+        private int value;
         public Card(cardType type)
         {
             this.type = type;
+            switch (type)
+            {
+                case cardType.black1:
+                    value = 1;
+                    break;
+                case cardType.green2:
+                case cardType.yellow2:
+                    value = 2;
+                    break;
+                case cardType.purple3:
+                    value = 3;
+                    break;
+                case cardType.orange4:
+                case cardType.pink4:
+                case cardType.red4:
+                case cardType.brown4:
+                    value = 4;
+                    break;
+            }
+
+        }
+
+        public int getCost()
+        {
+            return value;
         }
     }
 
