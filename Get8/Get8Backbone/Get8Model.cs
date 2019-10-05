@@ -6,69 +6,79 @@ using System.Threading.Tasks;
 
 namespace Get8Backbone
 {
-    class Get8Model
+    public class Get8Model
     {
-        Pile Draw;
-        Pile Discard;
-        Pile Star;
-    }
+        private Pile draw;
+        private Pile discard;
+        private Pile star;
 
-    class Pile
-    {
-        List<Card> pile;
-        public Pile(List<Card> cards)
-        {
-            pile = cards;
-        }
+        public Pile Draw { get { return draw; } set { draw = value; } }
 
-        public void Shuffle()
+        public Pile Discard
         {
-            int n = pile.Count;
-            Random rand = new Random();
-            while (n > 1)
+            get { return discard; }
+            set { discard = value; }
+
+        } 
+        public Pile Star { get => star; set => star = value; }
+
+        public class Pile
+        {
+            private List<Card> pile;
+            public Pile(List<Card> cards)
             {
-                n--;
-                int k = rand.Next(n + 1);
-                Card card = pile[k];
-                pile[k] = pile[n];
-                pile[n] = card;
+                pile = cards;
+            }
+
+            public void Shuffle()
+            {
+                int n = pile.Count;
+                Random rand = new Random();
+                while (n > 1)
+                {
+                    n--;
+                    int k = rand.Next(n + 1);
+                    Card card = pile[k];
+                    pile[k] = pile[n];
+                    pile[n] = card;
+                }
+            }
+
+            public Card Draw()
+            {
+                Card card = pile[pile.Count - 1];
+                pile.RemoveAt(pile.Count - 1);
+                return card;
+            }
+
+            public void Insert(Card card)
+            {
+                pile.Add(card);
             }
         }
 
-        public Card Draw()
+        public class Card
         {
-            Card card = pile[pile.Count - 1];
-            pile.RemoveAt(pile.Count-1);
-            return card;
-        }
-
-        public void Insert(Card card)
-        {
-            pile.Add(card);
-        }
-    }
-
-    class Card
-    {
-        enum cardType
-        {
-            black1,
-            yellow2,
-            green2,
-            purple3,
-            red4,
-            orange4,
-            brown4,
-            pink4,
-            teal5,
-            blue5,
-            steal,
-            search,
-            amplify,
-            swap,
-            cycle,
-            credit,
-            nope
+            public enum cardType
+            {
+                black1,
+                yellow2,
+                green2,
+                purple3,
+                red4,
+                orange4,
+                brown4,
+                pink4,
+                teal5,
+                blue5,
+                steal,
+                search,
+                amplify,
+                swap,
+                cycle,
+                credit,
+                nope
+            }
         }
     }
 }
