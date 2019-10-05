@@ -13,7 +13,7 @@ namespace GameController
         public GameState game;
 
 
-        public bool PlayerAction(int playerTurn, string action, Pile pile)
+        public bool PlayerAction(int playerTurn, string action, Pile pile, string special)
         {
             if (action == "Buy")
             {
@@ -28,7 +28,7 @@ namespace GameController
             else if (action == "Trade")
             {
                 int totalValue = 0;
-                foreach(Card card in pile.GetCards())
+                foreach (Card card in pile.GetCards())
                 {
                     totalValue += card.GetCost();
                 }
@@ -39,17 +39,21 @@ namespace GameController
                     {
                         game.PlayerHands[playerTurn].Insert(game.Star.Draw());
                     }
-                    catch
-                    {
-                        throw new ArgumentException("Not enough stars");
-                    }
+                    catch { throw new ArgumentException("Not enough stars"); }
                 }
-                // draw from star
-                // 1 for each 4 points discarded
             }
-            else if (action.Substring(0, 6) == "Special")
+            else if (action == "Cycle")
             {
-
+                if(special == "Clockwise")
+                {
+                    for(int i = 0; i < game.)
+                    Pile temp = game.PlayerHands[0];
+                    game.PlayerHands[0] = game.PlayerHands[1];
+                    game.PlayerHands[1] = game.PlayerHands[2];
+                    game.PlayerHands[2] = game.PlayerHands[2];
+                    game.PlayerHands[3] = game.PlayerHands[2];
+                    game.PlayerHands[4] = game.PlayerHands[2];
+                }
             }
             return false;
         }

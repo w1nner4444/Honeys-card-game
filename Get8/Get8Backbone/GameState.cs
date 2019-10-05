@@ -11,11 +11,13 @@ namespace Get8Backbone
         private Pile supply;
         private Pile discard;
         private Pile star;
-        private List<Pile> playerHands; 
+        private List<Pile> playerHands;
+        private int numPlayers;
 
-        
+
         public GameState(int numPlayers)
         {
+            this.numPlayers = numPlayers;
             List<Card> cards = GenerateDeck();
             supply = new Pile(cards);
             supply.Shuffle();
@@ -30,10 +32,11 @@ namespace Get8Backbone
             star = new Pile(new List<Card>());
         }
 
+        public int NumPlayers { get => numPlayers; }
         public List<Pile> PlayerHands { get => playerHands; set => playerHands = value; }
-        public Pile Star { get => star; set => star = value; }
-        public Pile Discard { get => discard; set => discard = value; }
-        public Pile Supply { get => supply; set => supply = value; }
+        public Pile Star { get => star; }
+        public Pile Discard { get => discard; }
+        public Pile Supply { get => supply; }
 
         private List<Card> GenerateDeck()
         {
@@ -126,7 +129,7 @@ namespace Get8Backbone
 
         public void InsertAll(List<Card> cards)
         {
-            foreach(Card card in cards)
+            foreach (Card card in cards)
             {
                 Insert(card);
             }
@@ -157,6 +160,9 @@ namespace Get8Backbone
                 case cardType.red4:
                 case cardType.brown4:
                     value = 4;
+                    break;
+                default:
+                    value = 2;
                     break;
             }
 
