@@ -128,7 +128,7 @@ namespace Get8Backbone
         {
             foreach(Card card in cards)
             {
-                pile.Insert(card);
+                Insert(card);
             }
         }
     }
