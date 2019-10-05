@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Get8Backbone
 {
-    class GameState
+    public class GameState
     {
         private Pile supply;
         private Pile discard;

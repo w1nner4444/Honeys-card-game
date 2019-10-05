@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29326.143
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2016
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Get8Backbone", "Get8Backbone\Get8Backbone.csproj", "{5FA86B88-F117-4AAE-AF4D-22260E2F36BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameController", "GameController\GameController.csproj", "{D65D8B86-EACF-41DC-8E3E-D768820DFAC3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetworkController", "NetworkController\NetworkController.csproj", "{82E3758D-FEDF-4B18-9143-6E3B7AC9BF90}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{5FA86B88-F117-4AAE-AF4D-22260E2F36BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5FA86B88-F117-4AAE-AF4D-22260E2F36BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5FA86B88-F117-4AAE-AF4D-22260E2F36BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D65D8B86-EACF-41DC-8E3E-D768820DFAC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D65D8B86-EACF-41DC-8E3E-D768820DFAC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D65D8B86-EACF-41DC-8E3E-D768820DFAC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D65D8B86-EACF-41DC-8E3E-D768820DFAC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82E3758D-FEDF-4B18-9143-6E3B7AC9BF90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82E3758D-FEDF-4B18-9143-6E3B7AC9BF90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82E3758D-FEDF-4B18-9143-6E3B7AC9BF90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82E3758D-FEDF-4B18-9143-6E3B7AC9BF90}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
