@@ -80,6 +80,9 @@ namespace Get8Backbone
             pile = cards;
         }
 
+        /// <summary>
+        /// shuffles this pile
+        /// </summary>
         public void Shuffle()
         {
             int n = pile.Count;
@@ -94,6 +97,10 @@ namespace Get8Backbone
             }
         }
 
+        /// <summary>
+        /// removes one card at the end of this pile
+        /// </summary>
+        /// <returns>the card that was removed</returns>
         public Card Draw()
         {
             Card card = pile[pile.Count - 1];
@@ -101,6 +108,10 @@ namespace Get8Backbone
             return card;
         }
 
+        /// <summary>
+        /// adds a card to this pile
+        /// </summary>
+        /// <param name="card">the card to add</param>
         public void Insert(Card card)
         {
             pile.Add(card);
@@ -143,9 +154,14 @@ namespace Get8Backbone
 
         }
 
-        public int getCost()
+        public int GetCost()
         {
             return value;
+        }
+
+        public cardType GetCardType()
+        {
+            return type;
         }
     }
 
