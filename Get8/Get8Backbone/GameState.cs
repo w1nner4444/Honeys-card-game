@@ -29,6 +29,10 @@ namespace Get8Backbone
             Star = new Pile(new List<Card>());
         }
 
+        /// <summary>
+        /// makes the starting deck
+        /// </summary>
+        /// <returns></returns>
         private List<Card> GenerateDeck()
         {
             List<Card> cards = new List<Card>();
@@ -127,6 +131,13 @@ namespace Get8Backbone
                 case cardType.red4:
                 case cardType.brown4:
                     value = 4;
+                    break;
+                case cardType.blue5:
+                case cardType.teal5:
+                    value = 5;
+                    break;
+                default:
+                    value = 2;
                     break;
             }
 
