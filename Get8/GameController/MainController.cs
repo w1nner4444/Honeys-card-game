@@ -44,15 +44,25 @@ namespace GameController
             }
             else if (action == "Cycle")
             {
-                if(special == "Clockwise")
+                if (special == "Clockwise")
                 {
-                    for(int i = 0; i < game.)
-                    Pile temp = game.PlayerHands[0];
-                    game.PlayerHands[0] = game.PlayerHands[1];
-                    game.PlayerHands[1] = game.PlayerHands[2];
-                    game.PlayerHands[2] = game.PlayerHands[2];
-                    game.PlayerHands[3] = game.PlayerHands[2];
-                    game.PlayerHands[4] = game.PlayerHands[2];
+                    List<Card> starsToRemove;
+                    List<Card> starsToAdd = new List<Card>();
+                    for (int i = 0; i < game.NumPlayers - 1; i++)
+                    {
+                        starsToRemove = new List<Card>(); // get the current stars in this player's hand
+
+                        foreach (Card card in game.PlayerHands[i].GetCards())
+                        {
+                            if (card.GetCost() > 3)
+                            {
+                                starsToRemove.Add(card);
+                            }
+                        } // we have all their stars
+                        game.PlayerHands[i].RemoveAll(starsToRemove);
+                        game.PlayerHands[i].InsertAll(starsToAdd);
+                        starsToAdd = starsToRemove ;
+                    }
                 }
             }
             return false;

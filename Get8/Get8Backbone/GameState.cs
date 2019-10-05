@@ -134,6 +134,14 @@ namespace Get8Backbone
                 Insert(card);
             }
         }
+
+        public void RemoveAll(List<Card> cards)
+        {
+            foreach (Card cardToRemove in cards)
+            {
+                pile.Remove(cardToRemove);
+            }
+        }
     }
 
     public class Card
