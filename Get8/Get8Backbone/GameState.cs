@@ -6,28 +6,34 @@ using System.Threading.Tasks;
 
 namespace Get8Backbone
 {
-    class GameState
+    public class GameState
     {
-        Pile Supply;
-        Pile Discard;
-        Pile Star;
-        List<Pile> PlayerHands;
+        private Pile supply;
+        private Pile discard;
+        private Pile star;
+        private List<Pile> playerhands; 
 
+        
         public GameState(int numPlayers)
         {
             List<Card> cards = GenerateDeck();
-            Supply = new Pile(cards);
-            Supply.Shuffle();
+            supply = new Pile(cards);
+            supply.Shuffle();
             for (int i = 0; i < numPlayers; i++)
             {
                 for (int j = 0; j < 2; j++)
                 {
-                    PlayerHands[i].Insert(Supply.Draw());
+                    PlayerHands1[i].Insert(supply.Draw());
                 }
             }
-            Discard = new Pile(new List<Card>());
-            Star = new Pile(new List<Card>());
+            Discard1 = new Pile(new List<Card>());
+            Star1 = new Pile(new List<Card>());
         }
+
+        public List<Pile> PlayerHands1 { get => playerhands; set => playerhands = value; }
+        public Pile Star1 { get => star; set => star = value; }
+        public Pile Discard1 { get => discard; set => discard = value; }
+        public Pile Supply1 { get => supply; set => supply = value; }
 
         private List<Card> GenerateDeck()
         {
