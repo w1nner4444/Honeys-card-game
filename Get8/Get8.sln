@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameController", "GameContr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetworkController", "NetworkController\NetworkController.csproj", "{82E3758D-FEDF-4B18-9143-6E3B7AC9BF90}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientController", "ClientController\ClientController.csproj", "{28016E90-A937-46D7-B6A1-06184A81AB9C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{82E3758D-FEDF-4B18-9143-6E3B7AC9BF90}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{82E3758D-FEDF-4B18-9143-6E3B7AC9BF90}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{82E3758D-FEDF-4B18-9143-6E3B7AC9BF90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28016E90-A937-46D7-B6A1-06184A81AB9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28016E90-A937-46D7-B6A1-06184A81AB9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28016E90-A937-46D7-B6A1-06184A81AB9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28016E90-A937-46D7-B6A1-06184A81AB9C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
