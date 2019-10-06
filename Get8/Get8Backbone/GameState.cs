@@ -11,11 +11,13 @@ namespace Get8Backbone
         private Pile supply;
         private Pile discard;
         private Pile star;
-        private List<Pile> playerhands; 
+        private List<Pile> playerHands;
+        private int numPlayers;
 
-        
+
         public GameState(int numPlayers)
         {
+            this.numPlayers = numPlayers;
             List<Card> cards = GenerateDeck();
             supply = new Pile(cards);
             supply.Shuffle();
@@ -23,17 +25,18 @@ namespace Get8Backbone
             {
                 for (int j = 0; j < 2; j++)
                 {
-                    PlayerHands1[i].Insert(supply.Draw());
+                    playerHands[i].Insert(supply.Draw());
                 }
             }
-            Discard1 = new Pile(new List<Card>());
-            Star1 = new Pile(new List<Card>());
+            discard = new Pile(new List<Card>());
+            star = new Pile(new List<Card>());
         }
 
-        public List<Pile> PlayerHands1 { get => playerhands; set => playerhands = value; }
-        public Pile Star1 { get => star; set => star = value; }
-        public Pile Discard1 { get => discard; set => discard = value; }
-        public Pile Supply1 { get => supply; set => supply = value; }
+        public int NumPlayers { get => numPlayers; }
+        public List<Pile> PlayerHands { get => playerHands; set => playerHands = value; }
+        public Pile Star { get => star; }
+        public Pile Discard { get => discard; }
+        public Pile Supply { get => supply; }
 
         private List<Card> GenerateDeck()
         {
@@ -82,6 +85,11 @@ namespace Get8Backbone
             pile = cards;
         }
 
+        public IEnumerable<Card> GetCards()
+        {
+            return pile;
+        }
+
         /// <summary>
         /// shuffles this pile
         /// </summary>
@@ -118,6 +126,22 @@ namespace Get8Backbone
         {
             pile.Add(card);
         }
+
+        public void InsertAll(List<Card> cards)
+        {
+            foreach (Card card in cards)
+            {
+                Insert(card);
+            }
+        }
+
+        public void RemoveAll(List<Card> cards)
+        {
+            foreach (Card cardToRemove in cards)
+            {
+                pile.Remove(cardToRemove);
+            }
+        }
     }
 
     public class Card
@@ -144,6 +168,9 @@ namespace Get8Backbone
                 case cardType.red4:
                 case cardType.brown4:
                     value = 4;
+                    break;
+                default:
+                    value = 2;
                     break;
             }
 
